@@ -39,11 +39,11 @@ echo "export ANTHROPIC_FOUNDRY_API_KEY=$API_KEY" >> "$ZPROFILE"
   
 # Also export for current session  
 export CLAUDE_CODE_USE_FOUNDRY=1  
-export ANTHROPIC_FOUNDRY_RESOURCE=it-security-ai  
-export ANTHROPIC_DEFAULT_SONNET_MODEL=claude-sonnet-4-5  
-export ANTHROPIC_DEFAULT_HAIKU_MODEL=claude-haiku-4-5  
-export ANTHROPIC_DEFAULT_OPUS_MODEL=claude-opus-4-6  
-export ANTHROPIC_FOUNDRY_API_KEY=$API_KEY  
+export ANTHROPIC_FOUNDRY_RESOURCE='it-security-ai'  
+export ANTHROPIC_DEFAULT_SONNET_MODEL='claude-sonnet-4-5'  
+export ANTHROPIC_DEFAULT_HAIKU_MODEL='claude-haiku-4-5'
+export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-6'  
+export ANTHROPIC_FOUNDRY_API_KEY='$API_KEY'  
   
 echo ""  
 echo "========================================="  
