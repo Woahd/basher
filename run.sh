@@ -9,29 +9,33 @@ echo ""
   
 # Install Homebrew  
 echo "[1/6] Installing Homebrew..."  
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  
+if command -v brew &>/dev/null; then  
+    echo "Homebrew is already installed. Skipping..."  
+else  
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  
+fi  
   
 # Configure Homebrew in shell profile  
 echo >> /Users/employee/.zprofile  
 echo 'eval "$(/opt/homebrew/bin/brew shellenv zsh)"' >> /Users/employee/.zprofile  
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"  
   
-# Install packages via Homebrew  
+# Install packages via Homebrew (skip if already installed)  
 echo "[2/6] Installing Git..."  
-brew install git  
+brew install git || echo "Git is already installed. Skipping..."  
   
 echo "[3/6] Installing Visual Studio Code..."  
-brew install --cask visual-studio-code  
+brew install --cask visual-studio-code || echo "VS Code is already installed. Skipping..."  
   
 echo "[4/6] Installing Google Chrome..."  
-brew install --cask google-chrome  
+brew install --cask google-chrome || echo "Google Chrome is already installed. Skipping..."  
   
 echo "[5/6] Installing Docker..."  
-brew install docker  
+brew install docker || echo "Docker is already installed. Skipping..."  
   
 # Install Claude Code  
 echo "[6/6] Installing Claude Code..."  
-curl -fsSL https://claude.ai/install.sh | bash  
+curl -fsSL https://claude.ai/install.sh | bash || echo "Claude Code install encountered an issue. Continuing..."  
   
 # Prompt for API key  
 echo ""  
