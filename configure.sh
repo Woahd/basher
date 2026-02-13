@@ -1,10 +1,16 @@
+#!/bin/bash  
+  
 # Prompt for API key  
 echo ""  
 echo "========================================="  
 echo "  Configuration"  
 echo "========================================="  
 echo ""  
-read -rp "Enter your ANTHROPIC_FOUNDRY_API_KEY: " API_KEY  
+echo "Please enter your ANTHROPIC_FOUNDRY_API_KEY."  
+echo "(The key will be hidden as you type for security)"  
+echo ""  
+read -rsp "ANTHROPIC_FOUNDRY_API_KEY: " API_KEY < /dev/tty  
+echo ""  
   
 if [ -z "$API_KEY" ]; then  
     echo "WARNING: No API key provided. You will need to set ANTHROPIC_FOUNDRY_API_KEY manually later."  
@@ -24,3 +30,8 @@ EOF
   
 # Source the profile so variables are available in the current session  
 source /Users/employee/.zprofile  
+  
+echo ""  
+echo "========================================="  
+echo "  Configuration Complete!"  
+echo "========================================="  
